@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ask the All-Knowing Horse of Wisdom</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .buttons {
+            margin: 20px 0;
+        }
+        button {
+            padding: 20px 40px;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 30px;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            color: white;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        button:active {
+            transform: translateY(0);
+        }
+        #videoContainer {
+            display: none;
+            margin-top: 20px;
+        }
+        video {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ask the All-Knowing Horse of Wisdom</h1>
+    
+    <div class="buttons">
+        <button id="askButton" onclick="askWisdom()">Ask</button>
+    </div>
+
+    <div id="videoContainer">
+        <video id="videoPlayer" controls>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        function askWisdom() {
+            const videoPlayer = document.getElementById('videoPlayer');
+            const videoContainer = document.getElementById('videoContainer');
+            
+            // Randomly choose between yes and no
+            const choices = ['yes', 'no'];
+            const randomChoice = choices[Math.floor(Math.random() * choices.length)];
+            
+            // Replace with your actual video paths
+            const videos = {
+                'yes': 'videos/yes_video.mp4',
+                'no': 'videos/no_video.mp4'
+            };
+            
+            videoPlayer.src = videos[randomChoice];
+            videoContainer.style.display = 'block';
+            videoPlayer.play();
+        }
+    </script>
+</body>
+</html>
